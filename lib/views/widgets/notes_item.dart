@@ -26,7 +26,7 @@ class NotesItem extends StatelessWidget {
               subtitle: Padding(
                 padding: const EdgeInsets.symmetric(vertical: 16),
                 child: Text(
-                  'data sbbeqb bbbbbsdwqbb bbbb000000000000000000000000000000000000000000bbo bbbb',
+                  'data sbbeqb bbbbbsdwqbb 000000000000000000000000000bbo bbbb',
                   style: TextStyle(
                     color: const Color.fromRGBO(0, 0, 0, 0.7),
                     fontSize: 16,
