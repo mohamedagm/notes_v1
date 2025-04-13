@@ -23,7 +23,7 @@ class CustomButton extends StatelessWidget {
         width: MediaQuery.of(context).size.width,
         height: 50,
         decoration: BoxDecoration(
-          color: KprimaryColor,
+          color: kPrimaryColor,
           borderRadius: BorderRadius.circular(8), // ✅ جعل الحواف دائرية
         ),
       ),

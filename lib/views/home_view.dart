@@ -11,7 +11,7 @@ class HomeView extends StatelessWidget {
     return Scaffold(
       body: const HomeViewBody(),
       floatingActionButton: FloatingActionButton(
-        backgroundColor: KprimaryColor,
+        backgroundColor: kPrimaryColor,
         onPressed: () {
           showModalBottomSheet(
             shape: RoundedRectangleBorder(
