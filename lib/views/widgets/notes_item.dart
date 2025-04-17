@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:notes_v1/models/note_model.dart';
 import 'package:notes_v1/views/edit_note_view.dart';
+import 'package:intl/intl.dart';
 
 class NotesItem extends StatelessWidget {
   const NotesItem({super.key, required this.notemodel});
