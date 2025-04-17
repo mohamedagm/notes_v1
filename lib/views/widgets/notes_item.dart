@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:notes_v1/cubits/notesCubit/notes_cubit.dart';
 import 'package:notes_v1/models/note_model.dart';
 import 'package:notes_v1/views/edit_note_view.dart';
 import 'package:intl/intl.dart';
@@ -48,9 +50,16 @@ class NotesItem extends StatelessWidget {
                     ),
                   ),
                 ),
-                trailing: IconButton(
-                  onPressed: () {},
-                  icon: Icon(Icons.delete, color: Colors.black),
+                trailing: BlocBuilder<NotesCubit, NotesState>(
+                  builder: (context, state) {
+                    return IconButton(
+                      onPressed: () {
+                        notemodel.delete();
+                        BlocProvider.of<NotesCubit>(context).getNotes();
+                      },
+                      icon: Icon(Icons.delete, color: Colors.black),
+                    );
+                  },
                 ),
               ),
               Padding(
