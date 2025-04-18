@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:notes_v1/cubits/notesCubit/notes_cubit.dart';
 import 'package:notes_v1/models/note_model.dart';
 import 'package:notes_v1/views/edit_note_view.dart';
-import 'package:intl/intl.dart';
 
 class NotesItem extends StatelessWidget {
   const NotesItem({super.key, required this.notemodel});
@@ -17,7 +16,7 @@ class NotesItem extends StatelessWidget {
           context,
           MaterialPageRoute(
             builder: (context) {
-              return EditNoteView();
+              return EditNoteView(note: notemodel);
             },
           ),
         );
