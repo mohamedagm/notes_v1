@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:notes_v1/cubits/notesCubit/notes_cubit.dart';
 import 'package:notes_v1/models/note_model.dart';
+import 'package:notes_v1/views/widgets/color_item_list_edit.dart';
 import 'package:notes_v1/views/widgets/custom_app_bar.dart';
 import 'package:notes_v1/views/widgets/custom_text_field.dart';
 
@@ -47,6 +48,8 @@ class EditNoteViewBody extends StatelessWidget {
               hint: 'content',
               maxLines: 5,
             ),
+            SizedBox(height: 25),
+            ColorItemListEdit(note: note),
           ],
         ),
       ),
