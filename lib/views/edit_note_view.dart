@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:notes_v1/constants.dart';
 import 'package:notes_v1/models/note_model.dart';
 import 'package:notes_v1/views/widgets/edit_note_view_body.dart';
 
@@ -7,6 +8,9 @@ class EditNoteView extends StatelessWidget {
   final NoteModel note;
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: EditNoteViewBody(note: note));
+    return Scaffold(
+      backgroundColor: kBackColor,
+      body: EditNoteViewBody(note: note),
+    );
   }
 }

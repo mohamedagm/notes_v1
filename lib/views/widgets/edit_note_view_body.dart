@@ -1,14 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:intl/intl.dart';
 import 'package:notes_v1/cubits/notesCubit/notes_cubit.dart';
 import 'package:notes_v1/models/note_model.dart';
 import 'package:notes_v1/views/widgets/color_item_list_edit.dart';
 import 'package:notes_v1/views/widgets/custom_app_bar.dart';
 import 'package:notes_v1/views/widgets/custom_text_field.dart';
 
-class EditNoteViewBody extends StatelessWidget {
-  EditNoteViewBody({super.key, required this.note});
+class EditNoteViewBody extends StatefulWidget {
+  const EditNoteViewBody({super.key, required this.note});
   final NoteModel note;
+
+  @override
+  State<EditNoteViewBody> createState() => _EditNoteViewBodyState();
+}
+
+class _EditNoteViewBodyState extends State<EditNoteViewBody> {
   GlobalKey<FormState> formKey = GlobalKey();
   @override
   Widget build(BuildContext context) {
@@ -24,32 +31,40 @@ class EditNoteViewBody extends StatelessWidget {
               iconData: Icons.check,
               ontap: () {
                 formKey.currentState!.save();
-                note.save();
+                widget.note.date = DateFormat(
+                  'd MMMM, yyyy – hh:mm a',
+                ).format(DateTime.now());
+                widget.note.save();
                 BlocProvider.of<NotesCubit>(context).getNotes();
                 Navigator.pop(context);
               },
             ),
             SizedBox(height: 25),
             CustomTextField(
+              text: widget.note.title,
               onsaved: (value) {
                 if (value != null && value.isNotEmpty) {
-                  note.title = value;
+                  widget.note.title = value;
                 }
               },
               hint: 'title',
             ),
             SizedBox(height: 25),
-            CustomTextField(
-              onsaved: (value) {
-                if (value != null && value.isNotEmpty) {
-                  note.content = value;
-                }
-              },
-              hint: 'content',
-              maxLines: 5,
+            Expanded(
+              child: CustomTextField(
+                text: widget.note.content,
+                onsaved: (value) {
+                  if (value != null && value.isNotEmpty) {
+                    widget.note.content = value;
+                  }
+                },
+                hint: 'content',
+                //maxLines: 5,
+              ),
             ),
             SizedBox(height: 25),
-            ColorItemListEdit(note: note),
+            ColorItemListEdit(note: widget.note),
+            SizedBox(height: 25),
           ],
         ),
       ),

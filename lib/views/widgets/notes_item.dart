@@ -36,12 +36,16 @@ class NotesItem extends StatelessWidget {
               ListTile(
                 //tileColor: Colors.orangeAccent,
                 title: Text(
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
                   notemodel.title,
                   style: TextStyle(color: Colors.black, fontSize: 26),
                 ),
                 subtitle: Padding(
                   padding: const EdgeInsets.symmetric(vertical: 16),
                   child: Text(
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
                     notemodel.content,
                     style: TextStyle(
                       color: const Color.fromRGBO(0, 0, 0, 0.7),

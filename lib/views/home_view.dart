@@ -9,6 +9,7 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: kBackColor,
       body: const HomeViewBody(),
       floatingActionButton: FloatingActionButton(
         backgroundColor: kPrimaryColor,
